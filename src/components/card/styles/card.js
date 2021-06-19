@@ -50,9 +50,9 @@ export const SubTitle = styled.p`
 
 export const Text = styled.p`
   margin-top: 5px;
-  font-size: 10px;
+  font-size: 7px;
   color: #fff;
-  margin-bottom: 0;
+  margin-bottom: 10px;
   user-select: none;
   display: none;
   line-height: normal;
@@ -61,6 +61,16 @@ export const Text = styled.p`
 export const Entities = styled.div`
   display: flex;
   flex-direction: row;
+  /* extra added features */
+  @media (max-width: 500px) {
+    overflow-y: hidden;
+    overflow-x: scroll;
+    padding: 20px;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
 `;
 
 export const Meta = styled.div`
@@ -80,6 +90,9 @@ export const Image = styled.img`
   height: auto;
   padding: 0;
   margin: 0;
+  @media (max-width: 768px) {
+    width: 1000px;
+  }
 `;
 
 export const Item = styled.div`
@@ -95,7 +108,7 @@ export const Item = styled.div`
     z-index: 99;
   }
 
-  @media (min-width: 1200px) {
+  @media (min-width: 1000px) {
     &:hover ${Meta}, &:hover ${Text}, &:hover ${SubTitle} {
       display: block;
       z-index: 100;

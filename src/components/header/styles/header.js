@@ -4,13 +4,35 @@ import { Link as ReachRouterLink } from 'react-router-dom';
 export const Background = styled.div`
   display: flex;
   flex-direction: column;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.35)),
-    url(${({ src }) => (src ? `../images/misc/${src}.jpg` : '../images/misc/home-bg.jpg')}) top left / cover no-repeat;
-  @media (max-width: 1100px) {
+  /* background: linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.35)), */
+  /* url(${({ src }) =>
+    src ? `../images/misc/${src}.jpg` : '../images/misc/home-bg.jpg'}) top left / cover no-repeat; */
+  /* url(${({ src }) => `${src}`}) top left / cover no-repeat; */
+
+  @media (max-width: 900px) {
     ${({ dontShowOnSmallViewPort }) => dontShowOnSmallViewPort && `background: none;`}
   }
 `;
+export const Banner = styled.div`
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  color: #fff;
+  height: 600px;
+  max-height: 600px;
+  color: white;
+  /* height: 448px; */
+  object-fit: contain;
+  /* display: flex;
+  flex-direction: row; */
+  /* justify-content: center; */
+  background: linear-gradient(180deg, transparent, rgba(37, 37, 37, 0.61), #111),
+    url(${({ src }) => `${src}`}) top left / cover no-repeat;
 
+  @media (max-width: 768px) {
+    height: 300px;
+  }
+`;
 export const Container = styled.div`
   display: flex;
   margin: 0 56px;
@@ -21,7 +43,9 @@ export const Container = styled.div`
   a {
     display: flex;
   }
-
+  @media (max-width: 768px) {
+    height: 60px;
+  }
   @media (max-width: 1000px) {
     margin: 0 30px;
   }
@@ -41,9 +65,9 @@ export const Link = styled.p`
   &:last-of-type {
     margin-right: 0;
   }
-  @media (max-width: 700px) {
+  /* @media (max-width: 768px) {
     display: none;
-  }
+  } */
 `;
 export const ProfileLink = styled.p`
   color: #fff;
@@ -93,7 +117,7 @@ export const Search = styled.div`
     cursor: pointer;
   }
 
-  @media (max-width: 700px) {
+  @media (max-width: 768px) {
     display: none;
   }
 `;
@@ -205,9 +229,14 @@ export const Feature = styled(Container)`
   align-items: normal;
   width: 50%;
 
-  @media (max-width: 1000px) {
-    display: none;
+  @media (max-width: 768px) {
+    padding: 0;
+    width: 75%;
+    margin-top: 90px;
   }
+  /* @media (max-width: 1000px) {
+    display: none;
+  } */
 `;
 
 export const FeatureCallOut = styled.h2`
@@ -217,13 +246,33 @@ export const FeatureCallOut = styled.h2`
   font-weight: bold;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);
   margin: 0;
+
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
 `;
 
 export const Text = styled.p`
   color: white;
-  font-size: 22px;
+  font-size: 16px;
   line-height: normal;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);
+
+  @media (max-width: 768px) {
+    font-size: 11px;
+  }
+`;
+export const BannerDescription = styled.p`
+  max-width: 360px;
+  line-height: 1.3;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  font-weight: bold;
+  font-size: 12px;
+  margin-top: 20px;
 `;
 
 export const Logo = styled.img`
@@ -234,6 +283,9 @@ export const Logo = styled.img`
   @media (min-width: 1449px) {
     height: 45px;
     width: 167px;
+  }
+  @media (max-width: 768px) {
+    width: 83px;
   }
 `;
 
@@ -251,6 +303,10 @@ export const PlayButton = styled.button`
   cursor: pointer;
   transition: background-color 0.5s ease;
 
+  @media (max-width: 768px) {
+    padding: 3px 9px;
+    max-width: 75px;
+  }
   &:hover {
     background-color: #ff1e1e;
     color: white;

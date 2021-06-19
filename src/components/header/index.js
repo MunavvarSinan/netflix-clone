@@ -18,6 +18,8 @@ import {
   SearchInput,
   ProfileLink,
   PlayButton,
+  BannerDescription,
+  Banner,
 } from './styles/header';
 
 export default function Header({ bg = true, children, ...restProps }) {
@@ -30,9 +32,14 @@ export default function Header({ bg = true, children, ...restProps }) {
   );
 }
 Header.Feature = function HeaderFeature({ children, ...restProps }) {
-  return <Feature>{children}</Feature>;
+  return <Feature {...restProps}>{children}</Feature>;
 };
-
+Header.Banner = function HeaderBanner({ children, ...restProps }) {
+  return <Banner {...restProps}>{children}</Banner>;
+};
+Header.BannerDescription = function HeaderBannerDescription({ children, ...restProps }) {
+  return <BannerDescription {...restProps}>{children}</BannerDescription>;
+};
 Header.Profile = function HeaderProfile({ children, ...restProps }) {
   return <Profile {...restProps}>{children}</Profile>;
 };
