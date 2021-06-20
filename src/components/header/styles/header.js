@@ -256,7 +256,7 @@ export const Text = styled.p`
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);
 
   @media (max-width: 768px) {
-    font-size: 11px;
+    font-size: 10px;
   }
 `;
 export const BannerDescription = styled.p`

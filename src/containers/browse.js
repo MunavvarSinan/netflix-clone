@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import Fuse from 'fuse.js';
-import Slider from 'react-indiana-drag-scroll';
-import { Card, Header, Loading, Player, Row } from '../components';
+// import Slider from 'react-indiana-drag-scroll';
+import { Header, Loading, Row } from '../components';
 import * as ROUTES from '../constants/routes';
 import logo from '../logo.svg';
 import { FirebaseContext } from '../context/firebase';
@@ -10,7 +10,7 @@ import { FooterContainer } from './footer';
 import { requests } from '../config/config';
 import API from '../config/axios';
 
-export function BrowseContainer({ slides, fetchUrl }) {
+export function BrowseContainer({ slides }) {
   const [category, setCategory] = useState('series');
   const [profile, setProfile] = useState({});
   const [loading, setLoading] = useState(true);
@@ -92,16 +92,17 @@ export function BrowseContainer({ slides, fetchUrl }) {
           </Header.Feature>
         </Header.Banner>
       </Header>
-      {/* <Row isLargeRow title="Netflix Originals" fetchUrl={requests.fetchNetflixOriginals} />
-      <Row title="Trending now" fetchUrl={requests.fetchTrending} />
-      <Row title="Top Rated" fetchUrl={requests.fetchTrending} />
-      <Row title="Action Movies" fetchUrl={requests.fetchActionMovies} />
-      <Row title="Comedy Movies" fetchUrl={requests.fetchComedyMovies} />
-      <Row title="Horror Movies" fetchUrl={requests.fetchHorrorMovies} />
-      <Row title="Romance Movies" fetchUrl={requests.fetchRomanceMovies} />
-      <Row title="Documentaries" fetchUrl={requests.fetchDocumentaries} /> */}
+      <Row title="NETFLIX ORIGINALS" id="NO" fetchUrl={requests.fetchNetflixOriginals} isLargeRow />
 
-      <Card.Group>
+      <Row title="Trending Now" id="TN" fetchUrl={requests.fetchTrending} />
+      <Row title="Top Rated" id="TR" fetchUrl={requests.fetchTopRated} />
+      <Row title="Action Movies" id="AM" fetchUrl={requests.fetchActionMovies} />
+      <Row title="Comedy Movies" id="CM" fetchUrl={requests.fetchComedyMovies} />
+      <Row title="Horror Movies" id="HM" fetchUrl={requests.fetchHorrorMovies} />
+      <Row title="Romance  Movies" id="RM" fetchUrl={requests.fetchRomanceMovies} />
+      <Row title="Documentaries" id="DM" fetchUrl={requests.fetchDocumentaries} />
+
+      {/* <Card.Group>
         {slideRows.map((slideItem) => (
           <Slider>
             <Card key={`${category}-${slideItem.title.toLowerCase()}`}>
@@ -126,7 +127,7 @@ export function BrowseContainer({ slides, fetchUrl }) {
             </Card>
           </Slider>
         ))}
-      </Card.Group>
+      </Card.Group> */}
       <FooterContainer />
     </>
   ) : (

@@ -1,93 +1,115 @@
 import styled from 'styled-components/macro';
-import ScrollContainer from 'react-indiana-drag-scroll';
 
 export const Container = styled.div`
   margin-left: 20px;
   color: white;
 `;
-export const Slider = styled(ScrollContainer)`
-  display: flex;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  padding: 20px;
-`;
+
 export const CardTitle = styled.h1``;
 
-export const RowSubTitle = styled.p`
-  font-size: 12px;
-  color: #fff;
-  font-weight: bold;
-  margin-top: 0;
-  margin-bottom: 0;
-  user-select: none;
-  display: none;
-`;
-
-export const RowText = styled.p`
-  margin-top: 5px;
-  font-size: 7px;
-  color: #fff;
-  margin-bottom: 0;
-  user-select: none;
-  display: none;
-  line-height: normal;
-`;
-
-export const RowMeta = styled.div`
-  display: none;
-  position: absolute;
-  bottom: 0;
-  padding: 10px;
-  background-color: #0000008f;
-`;
-
 export const RowImage = styled.img`
-  border: 0;
-  /* width: 100%; */
-  /* width: auto; */
-  max-width: 200px;
+  object-fit: contain;
   cursor: pointer;
-  height: auto;
-  padding: 0;
-  margin: 0;
+  width: 100%;
+  /* max-height: 144px; */
+  margin-right: 10px;
+  transition: transform 450ms;
+  border-radius: 4px;
   @media (max-width: 768px) {
-    width: 1000px;
+    max-height: 100px;
+
+    .row__posterLarge {
+      max-height: 280px;
+    }
+  }
+  @media (min-width: 1200px) {
+    max-height: 160px;
+
+    .row__posterLarge {
+      max-height: 360px;
+    }
+  }
+  &:hover {
+    transform: scale(1.08);
+  }
+  .row__posterLarge {
+    max-height: 320px;
+
+    &:hover {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+    @media (max-width: 768px) {
+      max-height: 280px;
+    }
+    @media (min-width: 1200px) {
+      max-height: 360px;
+    }
   }
 `;
 
 export const RowItem = styled.div`
   display: flex;
-  flex-direction: column;
-  margin-right: 5px;
-  position: relative;
-  cursor: pointer;
-  transition: transform 0.2s;
-
-  &:hover {
-    transform: scale(1.3);
-    z-index: 99;
-  }
-
-  @media (min-width: 1000px) {
-    &:hover ${RowMeta}, &:hover ${RowText}, &:hover ${RowSubTitle} {
-      display: block;
-      z-index: 100;
-    }
-  }
-
-  &:first-of-type {
-    margin-left: 56px;
-
-    @media (max-width: 1000px) {
-      margin-left: 30px;
-    }
-  }
-
-  &:last-of-type {
-    margin-right: 56px;
-
-    @media (max-width: 1000px) {
-      margin-right: 30px;
-    }
+  overflow-y: hidden;
+  overflow-x: scroll;
+  padding: 20px 0 20px 20px;
+  scroll-behavior: smooth;
+  &::-webkit-scrollbar {
+    display: none;
   }
 `;
+export const ArrowRight = styled.div`
+  padding: 20px 0;
+  background-clip: content-box;
+  box-sizing: border-box;
+  transition: 400ms all ease-in-out;
+  cursor: pointer;
+  width: 80px;
+  z-index: 1000;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  &:hover {
+    background: rgba(20, 20, 20, 0.5);
+    transition: 400ms all ease-in-out;
+  }
+`;
+export const ArrowLeft = styled.div`
+  background-clip: content-box;
+  padding: 20px 0;
+  box-sizing: border-box;
+  transition: 400ms all ease-in-out;
+  cursor: pointer;
+  width: 80px;
+  z-index: 1000;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+
+  &:hover {
+    background: rgba(20, 20, 20, 0.5);
+    transition: 400ms all ease-in-out;
+  }
+`;
+export const Slider = styled.div`
+  position: relative;
+  display: flex;
+  padding: 20px;
+
+  &:hover ${ArrowRight}, &:hover ${ArrowLeft} {
+    transition: 400ms all ease-in-out;
+    visibility: visible;
+  }
+`;
+
+// `;
