@@ -57,7 +57,7 @@ export function BrowseContainer({ slides, fetchUrl }) {
     <>
       {loading ? <Loading src={user.photoURL} /> : <Loading.ReleaseBody />}
       {/* <Header src={`${baseURL}${datas?.backdrop_path}`} dontShowOnSmallViewPort> */}
-      <Header>
+      <Header src="none">
         <Header.Banner src={`${baseURL}${datas?.backdrop_path}`}>
           <Header.Frame>
             <Header.Group>

@@ -4,11 +4,8 @@ import { Link as ReachRouterLink } from 'react-router-dom';
 export const Background = styled.div`
   display: flex;
   flex-direction: column;
-  /* background: linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.35)), */
-  /* url(${({ src }) =>
-    src ? `../images/misc/${src}.jpg` : '../images/misc/home-bg.jpg'}) top left / cover no-repeat; */
-  /* url(${({ src }) => `${src}`}) top left / cover no-repeat; */
-
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.35)),
+    url(${({ src }) => (src ? `../images/misc/${src}.jpg` : '../images/misc/home-bg.jpg')}) top left / cover no-repeat;
   @media (max-width: 900px) {
     ${({ dontShowOnSmallViewPort }) => dontShowOnSmallViewPort && `background: none;`}
   }
@@ -143,7 +140,7 @@ export const SearchIcon = styled.button`
 export const ButtonLink = styled(ReachRouterLink)`
   display: block;
   background-color: #e50914;
-  width: 84px;
+  width: 50px;
   height: fit-content;
   color: white;
   border: 0;
@@ -232,7 +229,7 @@ export const Feature = styled(Container)`
   @media (max-width: 768px) {
     padding: 0;
     width: 75%;
-    margin-top: 90px;
+    margin-top: 50px;
   }
   /* @media (max-width: 1000px) {
     display: none;
