@@ -1,6 +1,6 @@
 ## Demo
 
-https://netflix-clone-1f386.web.app/
+https://netflixui-clone-munavvar.netlify.app/
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
